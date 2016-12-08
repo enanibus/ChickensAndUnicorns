@@ -3,4 +3,5 @@
     <string name="error_downloading_menu">Error al descargar la carta de platos</string>
     <string name="downloading">Downloading Menu...</string>
     <string name="error">Error</string>
+    <string name="tables">Tables</string>
 </resources>

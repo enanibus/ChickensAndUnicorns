@@ -48,4 +48,9 @@ public class Table {
     public void setTheBill(double theBill) {
         mTheBill = theBill;
     }
+
+    @Override
+    public String toString() {
+        return "Table - " + this.getIdTable();
+    }
 }
