@@ -1,21 +1,20 @@
 <resources>
     <string name="app_name">ChickensAndUnicorns</string>
-    <string name="error_downloading_menu">Error al descargar la carta de platos</string>
+    <string name="error_downloading_menu">Error dowloading menu</string>
     <string name="downloading">Downloading Menu...</string>
     <string name="error">Error</string>
     <string name="tables">Tables</string>
-    <string name="add_course">Añadir plato</string>
+    <string name="add_course">Order</string>
+    <string name="title">Name</string>
+    <string name="course_price">Price</string>
+    <string name="course_description">Description</string>
+    <string name="course_wishlist">Extras</string>
+    <string name="add_extras">Add extras separated by commas</string>
+    <string name="course_image">Image</string>
+    <string name="remove_course">Remove this course from order?</string>
+    <string name="course_deleted">Course deleted</string>
+    <string name="table_cleaned">Table cleared</string>
+    <string name="the_bill">"The bill is: "</string>
+    <string name="remove_order">" dollars. Do you wish to remove the order?"</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title">Patatas bravas</string>
-    <string name="course_description_text">Texto de la imagen</string>
-    <string name="course_price">12.4€</string>
-    <string name="course_description">Descripción</string>
-    <string name="remove_course_from_table">¿Desea eliminar este plato?</string>
-    <string name="course_deleted">Plato eliminado</string>
-    <string name="table_cleaned">Mesa limpiada</string>
-    <string name="bill_total_table">"El total de la mesa es: "</string>
-    <string name="should_delete_table">" euros. ¿Desea eliminarla?"</string>
-    <string name="suggestions">Sugerencias:</string>
-    <string name="should_add_suggestions">¿Deseas añadir alguna sugerencia?</string>
 </resources>

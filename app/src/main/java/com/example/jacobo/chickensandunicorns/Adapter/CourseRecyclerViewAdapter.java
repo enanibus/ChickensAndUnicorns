@@ -59,16 +59,15 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
 
         public CourseViewHolder(View itemView, OnCourseSelectedListener courseSelectedListener) {
             super(itemView);
+            mOnCourseSelectedListener = new WeakReference<>(courseSelectedListener);
 
             mName = (TextView) itemView.findViewById(R.id.course_name);
-            mPrice = (TextView) itemView.findViewById(R.id.course_price);
-            mDescription = (TextView) itemView.findViewById(R.id.course_customization);
-            mWishList = (TextView) itemView.findViewById(R.id.course_suggestion);
             mImage = (ImageView) itemView.findViewById(course_image);
+            mDescription = (TextView) itemView.findViewById(R.id.course_description);
+            mPrice = (TextView) itemView.findViewById(R.id.course_price);
+            mWishList = (TextView) itemView.findViewById(R.id.course_wishlist);
 
-            mOnCourseSelectedListener = new WeakReference<>(courseSelectedListener);
         }
-
 
         public void bindCourse(final Course course){
             mCourse = course;

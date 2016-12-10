@@ -51,20 +51,12 @@
                         android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:contentDescription="@string/course_description_text"/>
+                        android:contentDescription="@string/course_image"/>
 
                 </FrameLayout>
 
                 <TextView
-                    android:id="@+id/course_price"
-                    android:gravity="left"
-                    android:text="@string/course_price"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/course_customization"
+                    android:id="@+id/course_description"
                     android:text="@string/course_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -72,7 +64,15 @@
                     />
 
                 <TextView
-                    android:id="@+id/course_suggestion"
+                    android:id="@+id/course_price"
+                    android:gravity="left"
+                    android:text="@string/course_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:id="@+id/course_wishlist"
                     android:text="Sugerencias"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

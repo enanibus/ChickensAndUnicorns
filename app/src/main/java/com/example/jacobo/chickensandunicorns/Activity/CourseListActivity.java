@@ -2,7 +2,6 @@ package com.example.jacobo.chickensandunicorns.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.example.jacobo.chickensandunicorns.Fragment.CourseListFragment;
 import com.example.jacobo.chickensandunicorns.Model.Course;
@@ -25,9 +24,8 @@ public class CourseListActivity extends AppCompatActivity implements CourseListF
     }
 
     @Override
-    public void onAddCourseSelected(Course course, String suggestions, Table table) {
-        Log.v("CourseListFragment", course.getName());
-        table.getOrder().addCourse(course, suggestions);
+    public void onAddCourseSelected(Course course, String extras, Table table) {
+        table.getOrder().addCourse(course, extras);
         finish();
     }
 

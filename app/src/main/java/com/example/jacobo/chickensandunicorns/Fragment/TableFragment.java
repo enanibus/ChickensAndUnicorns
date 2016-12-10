@@ -83,9 +83,8 @@ public class TableFragment extends Fragment{
 
             @Override
             public void onCourseLongSelected(final Course course) {
-                // Show a confirm dialog to remove an order
                 AlertDialog.Builder confirmDialog = new AlertDialog.Builder(getActivity());
-                confirmDialog.setMessage(R.string.remove_course_from_table);
+                confirmDialog.setMessage(R.string.remove_course);
                 confirmDialog.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

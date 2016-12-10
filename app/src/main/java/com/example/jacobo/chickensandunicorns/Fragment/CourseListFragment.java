@@ -10,7 +10,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,16 +35,6 @@ public class CourseListFragment extends Fragment {
     private Tables mTables;
     private Table mTable;
 
-//    public static CourseListFragment newInstance(int position) {
-//        Bundle arguments = new Bundle();
-//        arguments.putInt(TABLE_INDEX, position);
-//
-//        CourseListFragment fragment = new CourseListFragment();
-//        fragment.setArguments(arguments);
-//
-//        return fragment;
-//    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,11 +53,9 @@ public class CourseListFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_course_list, container);
 
-//        LinkedList<Course> courses = Menu.getMenu();
         mTables = Tables.getSTables();
         mTableIndex = getActivity().getIntent().getIntExtra(CourseListActivity.TABLE_INDEX, 0);
         mTable = mTables.getTable(mTableIndex);
-//        TableCourses tableCourses = mTable.getCourses();
 
         RecyclerView list = (RecyclerView) root.findViewById(R.id.menu_list);
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -76,13 +63,12 @@ public class CourseListFragment extends Fragment {
         list.setAdapter(new CourseRecyclerViewAdapter(Menu.getMenu(), new CourseRecyclerViewAdapter.OnCourseSelectedListener() {
             @Override
             public void onCourseSelected(final Course course) {
-                Log.v("Select Course", course.getName());
-                // Show a confirm dialog to remove an order
+//                Log.v("Borrando Plato", course.getName());
                 AlertDialog.Builder confirmDialog = new AlertDialog.Builder(getActivity());
                 final EditText input = new EditText(getActivity());
-                confirmDialog.setTitle(R.string.suggestions);
+                confirmDialog.setTitle(R.string.course_wishlist);
                 confirmDialog.setView(input);
-                confirmDialog.setMessage(R.string.should_add_suggestions);
+                confirmDialog.setMessage(R.string.add_extras);
                 confirmDialog.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -95,7 +81,6 @@ public class CourseListFragment extends Fragment {
 
             @Override
             public void onCourseLongSelected(Course course) {
-                Log.v("Select Course", course.getName());
             }
         }));
 
@@ -122,7 +107,6 @@ public class CourseListFragment extends Fragment {
     }
 
     private void attachToActivity(Context context) {
-        // If parent activity doesn't implement it, crash
         if (!(context instanceof OnAddCourseSelectedListener)) {
             throw new ClassCastException("Activity holding CourseSelectorFragment should implement OnCourseOrderSelectedListener");
         }
@@ -130,7 +114,6 @@ public class CourseListFragment extends Fragment {
         mOnCourseSelectedListener = (OnAddCourseSelectedListener) context;
     }
 
-    // Interface to notify when a course order (with its details) has been selected
     public interface OnAddCourseSelectedListener {
         void onAddCourseSelected(Course course, String suggestions, Table table);
     }

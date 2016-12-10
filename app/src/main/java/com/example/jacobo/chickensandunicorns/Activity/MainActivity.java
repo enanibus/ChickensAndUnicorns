@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements TableListFragment
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Esto os puede venir bien para ver qué medidas reales tiene el dispositivo
+        // Ver qué medidas reales tiene el dispositivo
         DisplayMetrics metrics = getResources().getDisplayMetrics();
         int width = metrics.widthPixels;
         int height = metrics.heightPixels;
