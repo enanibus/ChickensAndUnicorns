@@ -14,7 +14,11 @@ public class Order {
     public Order(int idOrder, int idTable, LinkedList<Course> courseLinkedList) {
         mIdOrder = idOrder;
         mIdTable = idTable;
-        mCourseLinkedList = courseLinkedList;
+        mCourseLinkedList = new LinkedList<Course>();
+    }
+
+    public Order() {
+        mCourseLinkedList = new LinkedList<Course>();
     }
 
     public int getIdOrder() {
@@ -39,5 +43,15 @@ public class Order {
 
     public void setCourseLinkedList(LinkedList<Course> courseLinkedList) {
         mCourseLinkedList = courseLinkedList;
+    }
+
+    public void addCourse(Course course, String wishList) {
+        Course newCourse = course;
+        newCourse.setWishList(wishList);
+        mCourseLinkedList.push(newCourse);
+    }
+
+    public void removeCourse(Course course){
+        mCourseLinkedList.removeFirstOccurrence(course);
     }
 }

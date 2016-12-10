@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 
 /**
@@ -61,7 +60,7 @@ public class Menu {
                     String imageURL = currentCourse.getString("image");
 
 
-                    Course course = new Course(id, name, description, type, price, new URL(imageURL), null, allergens);
+                    Course course = new Course(id, name, description, type, price, new URL(imageURL), "", allergens);
                     sCourses.add(course);
                 }
 

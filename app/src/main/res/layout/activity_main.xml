@@ -16,7 +16,6 @@
         android:name="com.example.jacobo.chickensandunicorns.Fragment.TableListFragment"
         tools:layout="@layout/fragment_table_list"
         android:id="@+id/table_list_fragment">
-
     </fragment>
 
 </LinearLayout>

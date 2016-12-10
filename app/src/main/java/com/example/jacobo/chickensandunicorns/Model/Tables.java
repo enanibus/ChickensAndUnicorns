@@ -27,7 +27,7 @@ public class Tables {
         mTables = new LinkedList<Table>();
 
         for (int i = 0; i < NUMBER_OF_TABLES; i++) {
-            mTables.add(new Table(i, null, false, 0.0));
+            mTables.add(new Table(i, new Order(), false, 0.0));
         }
     }
 

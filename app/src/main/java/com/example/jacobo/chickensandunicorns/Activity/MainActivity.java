@@ -1,6 +1,7 @@
 package com.example.jacobo.chickensandunicorns.Activity;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -71,6 +72,9 @@ public class MainActivity extends AppCompatActivity implements TableListFragment
 
     @Override
     public void onTableSelected(Table table, int position) {
+        Intent intent = new Intent(this, TableDetailActivity.class);
+        intent.putExtra(TableDetailActivity.TABLE_INDEX, position);
+        startActivity(intent);
 
     }
 }

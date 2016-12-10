@@ -1,5 +1,18 @@
 package com.example.jacobo.chickensandunicorns.Model;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
+import android.widget.ImageView;
+
+import com.example.jacobo.chickensandunicorns.R;
+import com.example.jacobo.chickensandunicorns.Utils.AsyncImage;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
@@ -17,6 +30,10 @@ public class Course implements Serializable {
     private URL mImageURL = null;
     private String mWishList = null;
     private ArrayList<String> mAllergens = null;
+
+    // wrapper class
+    private AsyncImage mImage;
+    private ImageView mImageView;
 
     public Course(int idCourse, String name, String description, String type, double price, URL imageURL, String wishList, ArrayList<String> allergens) {
         mIdCourse = idCourse;
@@ -91,5 +108,61 @@ public class Course implements Serializable {
 
     public void setAllergens(ArrayList<String> allergens) {
         mAllergens = allergens;
+    }
+
+    public AsyncImage getImage() {
+        return mImage;
+    }
+
+    public void setImage(AsyncImage image) {
+        mImage = image;
+    }
+
+    public ImageView getImageView() {
+        return mImageView;
+    }
+
+    public void setImageView(ImageView imageView) {
+        mImageView = imageView;
+    }
+
+    public Bitmap getBitmap(Context context) {
+        return getBitmapFromURL(context, mImageURL.toString());
+    }
+
+    private Bitmap getBitmapFromURL(Context context, String url) {
+        Log.v("Course",url);
+        File imageFile = new File(context.getCacheDir(), getName());
+
+        // We check if file already exists
+        if (imageFile.exists()) {
+            return BitmapFactory.decodeFile(imageFile.getAbsolutePath());
+        }
+
+        InputStream in = null;
+        try {
+            in = new java.net.URL(url).openStream();
+            Bitmap bmp = BitmapFactory.decodeStream(in);
+            if (bmp != null) {
+                FileOutputStream fos = new FileOutputStream(imageFile);
+                bmp.compress(Bitmap.CompressFormat.PNG, 90, fos);
+                fos.close();
+                return bmp;
+            }
+            else {
+                return null;
+            }
+        } catch (Exception e) {
+            Log.e(context.getString(R.string.app_name), "Error downloading image", e);
+            return null;
+        } finally {
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
