@@ -15,7 +15,7 @@ import com.example.jacobo.chickensandunicorns.R;
 
 public class CourseListActivity extends AppCompatActivity implements CourseListFragment.OnAddCourseSelectedListener {
     private Order mOrder;
-    public static final String TABLE_INDEX="TABLE_INDEX";
+    public static final String TABLE_INDEX = "TABLE_INDEX";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

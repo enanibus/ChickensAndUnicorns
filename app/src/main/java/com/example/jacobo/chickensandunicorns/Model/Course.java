@@ -2,8 +2,6 @@ package com.example.jacobo.chickensandunicorns.Model;
 
 import android.graphics.Bitmap;
 
-import com.example.jacobo.chickensandunicorns.Utils.AsyncImage;
-
 import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,9 +19,6 @@ public class Course implements Serializable {
     private URL mImageURL = null;
     private String mWishList = null;
     private ArrayList<String> mAllergens = null;
-
-    // wrapper class
-    private AsyncImage mImage;
     private Bitmap mBitmap;
 
     public Course(int idCourse, String name, String description, String type, double price, URL imageURL, String wishList, ArrayList<String> allergens) {
@@ -101,14 +96,6 @@ public class Course implements Serializable {
         mAllergens = allergens;
     }
 
-    public AsyncImage getImage() {
-        return mImage;
-    }
-
-    public void setImage(AsyncImage image) {
-        mImage = image;
-    }
-
     public Bitmap getBitmap() {
         return mBitmap;
     }
@@ -117,43 +104,4 @@ public class Course implements Serializable {
         mBitmap = bitmap;
     }
 
-//    public Bitmap getBitmap(Context context) {
-//        return getBitmapFromURL(context, mImageURL.toString());
-//    }
-//
-//    public Bitmap getBitmapFromURL(Context context, String url) {
-//        Log.v("Course",url);
-//        File imageFile = new File(context.getCacheDir(), getName());
-//
-//        // We check if file already exists
-//        if (imageFile.exists()) {
-//            return BitmapFactory.decodeFile(imageFile.getAbsolutePath());
-//        }
-//
-//        InputStream in = null;
-//        try {
-//            in = new java.net.URL(url).openStream();
-//            Bitmap bmp = BitmapFactory.decodeStream(in);
-//            if (bmp != null) {
-//                FileOutputStream fos = new FileOutputStream(imageFile);
-//                bmp.compress(Bitmap.CompressFormat.PNG, 90, fos);
-//                fos.close();
-//                return bmp;
-//            }
-//            else {
-//                return null;
-//            }
-//        } catch (Exception e) {
-//            Log.e(context.getString(R.string.app_name), "Error downloading image", e);
-//            return null;
-//        } finally {
-//            try {
-//                if (in != null) {
-//                    in.close();
-//                }
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 }

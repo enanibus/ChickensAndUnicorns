@@ -13,8 +13,8 @@
     <string name="course_image">Image</string>
     <string name="remove_course">Remove this course from order?</string>
     <string name="course_deleted">Course deleted</string>
-    <string name="table_cleaned">Table cleared</string>
-    <string name="the_bill">"The bill is: "</string>
+    <string name="table_available">Table available</string>
+    <string name="the_bill">"Bill's amount: "</string>
     <string name="remove_order">" dollars. Do you wish to remove the order?"</string>
 
 </resources>

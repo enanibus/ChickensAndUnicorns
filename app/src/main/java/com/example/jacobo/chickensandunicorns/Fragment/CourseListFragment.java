@@ -93,7 +93,6 @@ public class CourseListFragment extends Fragment {
         attachToActivity(context);
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -115,7 +114,7 @@ public class CourseListFragment extends Fragment {
     }
 
     public interface OnAddCourseSelectedListener {
-        void onAddCourseSelected(Course course, String suggestions, Table table);
+        void onAddCourseSelected(Course course, String wishlist, Table table);
     }
 }
 

@@ -70,16 +70,11 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
         }
 
         public void bindCourse(final Course course){
+            String units = " $";
             mCourse = course;
             mName.setText(course.getName());
             mDescription.setText(course.getDescription());
-            String units = " $";
-
-//            Double price = course.getPrice();
-//            String priceString = String.format("%.2f",price);
-//            String priceFormated = "Precio: " + priceString  + " $";
             mPrice.setText(String.format("%.2f %s", course.getPrice(), units));
-//            mPrice.setText(priceFormated);
             mWishList.setText(course.getWishList());
 
             mImage.setImageBitmap(mCourse.getBitmap());

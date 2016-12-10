@@ -28,7 +28,7 @@ import com.example.jacobo.chickensandunicorns.R;
  */
 
 public class TableFragment extends Fragment{
-    private static final String TABLE_INDEX="TABLE_INDEX";
+    private static final String TABLE_INDEX = "TABLE_INDEX";
     private int mTableIndex;
     private CourseRecyclerViewAdapter mAdapter;
 //    private Order mOrder;
