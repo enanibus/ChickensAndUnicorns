@@ -6,7 +6,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.util.Log;
 import android.view.ViewGroup;
 
 import com.example.jacobo.chickensandunicorns.Model.Course;
@@ -44,7 +43,7 @@ public class DownloadMenu extends AsyncTask<Void, Void, LinkedList<Course>> {
     @Override
     protected LinkedList<Course> doInBackground(Void... params) {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

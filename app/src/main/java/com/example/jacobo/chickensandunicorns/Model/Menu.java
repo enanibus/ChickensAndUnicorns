@@ -1,9 +1,14 @@
 package com.example.jacobo.chickensandunicorns.Model;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -59,8 +64,25 @@ public class Menu {
                     }
                     String imageURL = currentCourse.getString("image");
 
+                    InputStream in = null;
+                    Bitmap bmp = null;
+                    try {
+                        in = new java.net.URL(imageURL).openStream();
+                        bmp = BitmapFactory.decodeStream(in);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        try {
+                            if (in != null) {
+                                in.close();
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
 
                     Course course = new Course(id, name, description, type, price, new URL(imageURL), "", allergens);
+                    course.setBitmap(bmp);
                     sCourses.add(course);
                 }
 

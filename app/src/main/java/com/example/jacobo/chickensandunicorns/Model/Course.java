@@ -34,6 +34,7 @@ public class Course implements Serializable {
     // wrapper class
     private AsyncImage mImage;
     private ImageView mImageView;
+    private Bitmap mBitmap;
 
     public Course(int idCourse, String name, String description, String type, double price, URL imageURL, String wishList, ArrayList<String> allergens) {
         mIdCourse = idCourse;
@@ -126,11 +127,19 @@ public class Course implements Serializable {
         mImageView = imageView;
     }
 
+    public Bitmap getBitmap() {
+        return mBitmap;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        mBitmap = bitmap;
+    }
+
     public Bitmap getBitmap(Context context) {
         return getBitmapFromURL(context, mImageURL.toString());
     }
 
-    private Bitmap getBitmapFromURL(Context context, String url) {
+    public Bitmap getBitmapFromURL(Context context, String url) {
         Log.v("Course",url);
         File imageFile = new File(context.getCacheDir(), getName());
 
