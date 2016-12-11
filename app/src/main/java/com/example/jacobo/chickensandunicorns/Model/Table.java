@@ -54,4 +54,11 @@ public class Table {
         return "Table - " + this.getIdTable();
     }
 
+    public void clear()  {
+        mTheBill = 0;
+        while (!mOrder.getCourseLinkedList().isEmpty()) {
+            mOrder.getCourseLinkedList().removeFirst();
+        }
+    }
+
 }

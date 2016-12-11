@@ -65,10 +65,6 @@ public class TableFragment extends Fragment{
         Tables tables = Tables.getSTables();
         mTableIndex = getActivity().getIntent().getIntExtra(TableDetailActivity.TABLE_INDEX, 0);
         mTable = tables.getTable(mTableIndex);
-//        mTableCourses = mTable.getCourses();
-//        mOrder = mTable.getOrder();
-
-
 
         RecyclerView listRecycle = (RecyclerView) root.findViewById(R.id.menu_list);
         listRecycle.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -129,24 +125,23 @@ public class TableFragment extends Fragment{
 
             return true;
         }
-//        else if (item.getItemId() == R.id.table_bill) {
-//            // Show a confirm dialog to remove an order
-//            AlertDialog.Builder confirmDialog = new AlertDialog.Builder(getActivity());
-//            confirmDialog.setMessage(getActivity().getString(R.string.bill_total_table) + tables.getTableAtPosition(mTableIndex).bill() + getActivity().getString(R.string.should_delete_table));
-//            confirmDialog.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                    mTable.removeAllCourses();
-//                    mAdapter.notifyDataSetChanged();
-//                    Snackbar
-//                            .make(getView(), R.string.table_cleaned, Snackbar.LENGTH_SHORT)
-//                            .show();
-//                }
-//            });
-//            confirmDialog.setNegativeButton(android.R.string.cancel, null);
-//            confirmDialog.show();
-//            return true;
-//        }
+        else if (item.getItemId() == R.id.the_bill) {
+            AlertDialog.Builder confirmDialog = new AlertDialog.Builder(getActivity());
+            confirmDialog.setMessage(getActivity().getString(R.string.total_amount) + tables.getTable(mTableIndex).getTheBill() + getActivity().getString(R.string.checkout_order));
+            confirmDialog.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    mTable.clear();
+                    mAdapter.notifyDataSetChanged();
+                    Snackbar
+                            .make(getView(), R.string.table_available, Snackbar.LENGTH_SHORT)
+                            .show();
+                }
+            });
+            confirmDialog.setNegativeButton(android.R.string.cancel, null);
+            confirmDialog.show();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }

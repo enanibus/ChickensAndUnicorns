@@ -14,7 +14,8 @@
     <string name="remove_course">Remove this course from order?</string>
     <string name="course_deleted">Course deleted</string>
     <string name="table_available">Table available</string>
-    <string name="the_bill">"Bill's amount: "</string>
-    <string name="remove_order">" dollars. Do you wish to remove the order?"</string>
+    <string name="checkout">Checkout</string>
+    <string name="total_amount">"Total amount "</string>
+    <string name="checkout_order">" $. Checkout the order?"</string>
 
 </resources>

@@ -63,7 +63,6 @@ public class CourseListFragment extends Fragment {
         list.setAdapter(new CourseRecyclerViewAdapter(Menu.getMenu(), new CourseRecyclerViewAdapter.OnCourseSelectedListener() {
             @Override
             public void onCourseSelected(final Course course) {
-//                Log.v("Borrando Plato", course.getName());
                 AlertDialog.Builder confirmDialog = new AlertDialog.Builder(getActivity());
                 final EditText input = new EditText(getActivity());
                 confirmDialog.setTitle(R.string.course_wishlist);
@@ -72,8 +71,10 @@ public class CourseListFragment extends Fragment {
                 confirmDialog.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String suggestions = input.getText().toString();
-                        mOnCourseSelectedListener.onAddCourseSelected(course,suggestions, mTable);
+                        String wishlist = input.getText().toString();
+                        mOnCourseSelectedListener.onAddCourseSelected(course,wishlist, mTable);
+                        double amount = mTable.getTheBill() + course.getPrice();
+                        mTable.setTheBill(amount);
                     }
                 });
                 confirmDialog.show();
