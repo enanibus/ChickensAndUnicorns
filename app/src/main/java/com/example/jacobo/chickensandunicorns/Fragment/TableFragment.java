@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -100,6 +101,15 @@ public class TableFragment extends Fragment{
         });
 
         listRecycle.setAdapter(mAdapter);
+
+        FloatingActionButton addButton = (FloatingActionButton) root.findViewById(R.id.add_button);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TableDetailActivity myActivity = (TableDetailActivity) getActivity();
+                myActivity.onAddCourseTapped(mTableIndex);
+            }
+        });
 
         return root;
     }
