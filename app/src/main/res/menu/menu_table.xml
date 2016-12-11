@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-          android:id="@+id/add_course"
-          android:title="@string/add_course"
+          android:id="@+id/order"
+          android:title="@string/order"
           android:showAsAction="always"
         />
-    <item android:id="@+id/the_bill"
+    <item android:id="@+id/checkout"
           android:title="@string/checkout"
           android:showAsAction="always" />
 </menu>

@@ -55,7 +55,7 @@ public class Table {
     }
 
     public void clear()  {
-        mTheBill = 0;
+        this.setTheBill(0);
         while (!mOrder.getCourseLinkedList().isEmpty()) {
             mOrder.getCourseLinkedList().removeFirst();
         }

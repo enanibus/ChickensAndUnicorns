@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.jacobo.chickensandunicorns.Model.Course;
@@ -56,6 +57,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
         private TextView mDescription;
         private TextView mWishList;
         private ImageView mImage;
+        private LinearLayout mLinearLayout;
 
         public CourseViewHolder(View itemView, OnCourseSelectedListener courseSelectedListener) {
             super(itemView);
@@ -66,7 +68,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             mDescription = (TextView) itemView.findViewById(R.id.course_description);
             mPrice = (TextView) itemView.findViewById(R.id.course_price);
             mWishList = (TextView) itemView.findViewById(R.id.course_wishlist);
-
+            mLinearLayout = (LinearLayout) itemView.findViewById(R.id.allergens);
         }
 
         public void bindCourse(final Course course){
@@ -74,6 +76,34 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             mCourse = course;
             mName.setText(course.getName());
             mDescription.setText(course.getDescription());
+
+            if ( mCourse.getAllergens().size() > 0) {
+                mLinearLayout.removeAllViews();
+                for (int i = 0; i < mCourse.getAllergens().size(); i++) {
+                    String allergen = mCourse.getAllergens().get(i);
+                    ImageView imageView = new ImageView(this.itemView.getContext());
+                    switch (allergen)
+                    {
+                        case "01":
+                            imageView.setImageResource(R.drawable.all_01);
+                            break;
+                        case "02":
+                            imageView.setImageResource(R.drawable.all_02);
+                            break;
+                        case "03":
+                            imageView.setImageResource(R.drawable.all_03);
+                            break;
+                        case "04":
+                            imageView.setImageResource(R.drawable.all_04);
+                            break;
+                        case "05":
+                            imageView.setImageResource(R.drawable.all_05);
+                            break;
+                    }
+                    mLinearLayout.addView(imageView);
+                }
+            }
+
             mPrice.setText(String.format("%.2f %s", course.getPrice(), units));
             mWishList.setText(course.getWishList());
 

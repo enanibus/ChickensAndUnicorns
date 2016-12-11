@@ -86,6 +86,8 @@ public class TableFragment extends Fragment{
                     public void onClick(DialogInterface dialog, int which) {
                         mAdapter.notifyDataSetChanged();
                         mTable.getOrder().removeCourse(course);
+                        double amount = mTable.getTheBill() - course.getPrice();
+                        mTable.setTheBill(amount);
                         Snackbar
                                 .make(getView(), R.string.course_deleted, Snackbar.LENGTH_SHORT)
                                 .show();
@@ -118,14 +120,14 @@ public class TableFragment extends Fragment{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Tables tables = Tables.getSTables();
-        if (item.getItemId() == R.id.add_course) {
+        if (item.getItemId() == R.id.order) {
 
             TableDetailActivity myActivity = (TableDetailActivity) getActivity();
             myActivity.onAddCourseTapped(mTableIndex);
 
             return true;
         }
-        else if (item.getItemId() == R.id.the_bill) {
+        else if (item.getItemId() == R.id.checkout) {
             AlertDialog.Builder confirmDialog = new AlertDialog.Builder(getActivity());
             confirmDialog.setMessage(getActivity().getString(R.string.total_amount) + tables.getTable(mTableIndex).getTheBill() + getActivity().getString(R.string.checkout_order));
             confirmDialog.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
